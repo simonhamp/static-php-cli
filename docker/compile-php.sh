@@ -23,7 +23,8 @@ php_compile_args && sleep 1s
 
 cd $php_dir && \
     ./buildconf --force && \
-    ./configure LDFLAGS=-static $(php_compile_args $VER_PHP) && \
+    $self_dir/check-extensions.sh check_after_buildconf && \
+    ./configure LDFLAGS=-static CFLAGS=-static LIBS="-levent -lstdc++" $(php_compile_args $VER_PHP) && \
     $self_dir/check-extensions.sh check_after_configure && \
     sed -ie 's/-export-dynamic//g' "Makefile" && \
     sed -ie 's/-o $(SAPI_CLI_PATH)/-all-static -o $(SAPI_CLI_PATH)/g' "Makefile" && \
