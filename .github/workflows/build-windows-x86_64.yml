@@ -1,4 +1,5 @@
 name: CI on x86_64 Windows
+run-name: ${{ inputs.note || "" }}
 
 on:
   workflow_dispatch:
@@ -30,6 +31,8 @@ on:
         type: string
       debug:
         type: boolean
+      note:
+        type: string
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
