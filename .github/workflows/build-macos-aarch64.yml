@@ -28,6 +28,7 @@ on:
         description: extensions to compile (comma separated)
         required: true
         type: string
+        default: bcmath,ctype,curl,dom,fileinfo,filter,mbstring,openssl,pdo,pdo_sqlite,session,simplexml,sockets,sqlite3,tokenizer,xml,zlib
       debug:
         type: boolean
 
