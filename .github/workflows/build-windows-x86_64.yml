@@ -1,5 +1,5 @@
 name: CI on x86_64 Windows
-run-name: ${{ inputs.note || '' }}
+run-name: ${{ inputs.note || '' }} Windows
 
 on:
   workflow_dispatch:
