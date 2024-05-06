@@ -1,4 +1,5 @@
-name: CI on arm64 macOS
+name: CI on ARM macOS
+run-name: ${{ inputs.note || '' }} ARM macOS
 
 on:
   workflow_dispatch:
@@ -31,6 +32,8 @@ on:
         default: bcmath,ctype,curl,dom,fileinfo,filter,mbstring,openssl,pdo,pdo_sqlite,session,simplexml,sockets,sqlite3,tokenizer,xml,zlib
       debug:
         type: boolean
+      note:
+        type: string
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
