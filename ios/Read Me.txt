@@ -1,0 +1,40 @@
+This version of phpwin includes PHP 8.1.28, to compile newer version from source, follow these steps:
+
+
+Before starting, install these:
+
+- Homebrew
+- PHP (or install MAMP)
+- make (enter "brew install make" in Terminal)
+
+
+1) All external libraries required by PHP to support most common extensions must be compiled,
+	You will find here directory "libs", each library contains its own build script,
+	all you need is to download the source, extract it, rename extracted directory to "src" and run build.sh through Terminal.
+	If you are unable to find the source, contact me. I didn't include them here for sake of size.
+
+2) Download PHP source code from php.net and extract it here under name "php"
+
+3) Now you have 4 directories ("libs", "php", "output" & "raw"), run "prepare_php.sh" through Terminal
+
+4) Inside php directory, there's file named "configure", open it and search for:
+	"if test "$PHP_FILEINFO" != "no"; then"
+	below that lines you will see something like "$cross_compiling" = yes;
+	replace "yes" with "no"
+
+5) Run "build.sh".
+
+6) Compiled PHP can be found in "output/php8.a", move it to phpwin's source:
+	ios/phpwin/server/php
+7) In php's source, there are 3 directories ("main", "TSRM" & "Zend"), copy only .h files from there to phpwin's source:
+	"ios/phpwin/server/php"
+
+Please note that build.sh works with PHP 8, I didn't use it on PHP 8.1, but it should work too.
+
+============================
+		Support		
+============================
+If you have some issues, please don't hesitate to contact us:
+
+Email: contact@porizm.com
+Skype: porizm
